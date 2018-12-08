@@ -29,7 +29,8 @@ javac -version
 		}
         stage('Build'){
             steps {
-                sh 'mvn clean package'
+                sh '''printenv
+                mvn clean package'''
             }
             post {
                 success {
