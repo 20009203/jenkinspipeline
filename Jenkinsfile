@@ -13,8 +13,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh '''export M2_HOME=/opt/maven/apache-maven-3.5.3
-                      export PATH=$PATH:$M2_HOME/bin
+                sh '''source /var/lib/jenkins/.bashrc
                       mvn clean package'''
             }
             post {
