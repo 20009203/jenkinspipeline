@@ -16,7 +16,7 @@ stages{
 				export M2_HOME='/opt/maven/apache-maven-3.5.3'
 				export PATH="$PATH:$M2_HOME/bin"
 				echo $PATH
-				mvn -version
+				sh 'mvn -version'
 			}
 			post {
                 success {
