@@ -11,6 +11,18 @@ pipeline {
      }
 
 stages{
+		stage ('Preparing'){
+			steps{
+				export M2_HOME=/opt/maven/apache-maven-3.5.3
+				export PATH=$PATH:$M2_HOME/bin
+				mvn -version
+			}
+			post {
+                success {
+                    echo 'Commande mvn OK!'
+                }
+            }
+		}
         stage('Build'){
             steps {
                 sh 'mvn clean package'
