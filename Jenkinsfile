@@ -14,12 +14,10 @@ stages{
 		stage ('Preparing'){
 			steps{
 				sh '''export M2_HOME=/opt/maven/apache-maven-3.5.3
-export PATH=$PATH:$M2_HOME/bin
-printenv
-mvn -version
-javac -version
-'''
-
+					  export PATH=$PATH:$M2_HOME/bin
+					  printenv
+					  mvn -version
+				      javac -version'''
 			}
 			post {
                 success {
@@ -29,8 +27,10 @@ javac -version
 		}
         stage('Build'){
             steps {
-                sh '''printenv
-                mvn clean package'''
+                sh '''export M2_HOME=/opt/maven/apache-maven-3.5.3
+                      export PATH=$PATH:$M2_HOME/bin
+                      printenv
+                      mvn clean package'''
             }
             post {
                 success {
