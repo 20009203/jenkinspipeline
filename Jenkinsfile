@@ -13,7 +13,7 @@ pipeline {
 stages{
 		stage ('Preparing'){
 			steps{
-				sh "export M2_HOME=/opt/maven/apache-maven-3.5.3'
+				sh "export M2_HOME=/opt/maven/apache-maven-3.5.3"
 				sh "export PATH=$PATH:$M2_HOME/bin"
 				sh "echo $PATH"
 				sh 'mvn -version'
