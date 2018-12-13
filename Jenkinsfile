@@ -13,6 +13,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
+            	sh 'ifconfig'
                 sh '''source /var/lib/jenkins/.bashrc
                       mvn clean package'''
             }
