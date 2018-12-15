@@ -29,12 +29,14 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
+                    	sh 'pwd'
                         sh "scp -i /home/jenkins/TomcatStagingAWS.pem **/target/*.war ec2-user@${params.tomcat_dev}:/opt/apache-tomcat-8.5.35/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
+                        sh 'pwd'
                         sh "scp -i /home/jenkins/TomcatProdAWS.pem **/target/*.war ec2-user@${params.tomcat_prod}:/opt/apache-tomcat-8.5.35/webapps"
                     }
                 }
